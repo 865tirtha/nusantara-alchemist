@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+body {
+  /* Menggunakan trik SVG untuk render emoji sebagai kursor */
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" style="font-size:24px"><text y="24">🍳</text></svg>'), auto;
+  overflow-x: hidden;
+}
+
+body:active {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" style="font-size:24px; transform: rotate(-20deg)"><text y="24">🍳</text></svg>'), auto;
+}
+
+.sketch-image {
+  filter: grayscale(100%) contrast(150%) sepia(20%);
+}
+
+.hover-jiggle {
+  transition: transform 0.1s ease-in-out;
+}
+.hover-jiggle:hover {
+  animation: jiggle 0.3s ease-in-out infinite alternate;
+}
+
+@keyframes jiggle {
+  0% { transform: rotate(-2deg) scale(1.02); }
+  100% { transform: rotate(2deg) scale(1.02); }
+}
+
+.sketchy-border {
+  border: 2px solid #2d2d2d;
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+}
+
+.sketchy-border-alt {
+  border: 2px solid #2d2d2d;
+  border-radius: 15px 225px 15px 255px/255px 15px 225px 15px;
+}
+
+.sketchy-dashed {
+  border: 2px dashed #2d2d2d;
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+}
+
+/* GOD TIER ANIMATIONS */
+@keyframes god-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes god-glitter {
+  0% { text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #ffd700, 0 0 20px #ffd700; }
+  50% { text-shadow: 0 0 2px #fff, 0 0 5px #fff, 0 0 10px #ffaa00, 0 0 15px #ffaa00; }
+  100% { text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #ffd700, 0 0 20px #ffd700; }
+}
+
+.god-tier-anim {
+  animation: god-blink 2s infinite ease-in-out;
+  box-shadow: 0 0 10px #ffd700, inset 0 0 10px #ffd700;
+  border-color: #ffd700 !important;
+}
+
+.god-text-glitter {
+  animation: god-glitter 1.5s infinite ease-in-out;
+}
+
+/* HINT BULB GLOW ANIMATION */
+@keyframes bulb-glow {
+  0%, 100% { filter: drop-shadow(0 0 5px #ffd700) drop-shadow(0 0 10px #fbbf24) brightness(1.2); }
+  50% { filter: drop-shadow(0 0 15px #ffd700) drop-shadow(0 0 25px #fbbf24) brightness(1.5); }
+}
+
+.anim-bulb-glow {
+  animation: bulb-glow 1.5s infinite ease-in-out;
+}
